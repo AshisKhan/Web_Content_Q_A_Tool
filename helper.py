@@ -6,13 +6,19 @@ from sentence_transformers import SentenceTransformer
 import faiss
 import numpy as np
 import re
-
+import streamlit as st
 
 # Loading a pre-trained embedding model
 embedding_model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
-# Loading Hugging Face API_KEY from .env file
+
+'''# Loading Hugging Face API_KEY from .env file
 load_dotenv()
 HUGGINGFACE_API_KEY = os.getenv('API_KEY')
+'''
+
+# Loading API Key from Streamlit Secrets
+HUGGINGFACE_API_KEY = st.secrets["API_KEY"]
+
 
 # Function to scrape text from multiple URLs
 def scrape_text_from_urls(urls):
