@@ -1,6 +1,6 @@
-streamlit
-requests
 beautifulsoup4
+requests
+streamlit
 sentence-transformers
 faiss-cpu
 numpy
