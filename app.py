@@ -74,3 +74,12 @@ if "texts" in st.session_state:
                 st.write(st.session_state["retrieved_chunks"])
         else:
             st.warning("No answer found in the extracted content.")
+            st.write("The answer may not be generated due to Mistral 7B's performance. Try checking the reference chunks or rephrasing your question.")
+            # Toggle button for reference chunks
+            if st.button("Check reference chunks"):
+                st.session_state["show_chunks"] = not st.session_state.get("show_chunks", False)
+
+            # Displaying chunks if toggled
+            if st.session_state.get("show_chunks", False):
+                st.write("### Raw Retrieved Context from the URLs as a reference")
+                st.write(st.session_state["retrieved_chunks"])

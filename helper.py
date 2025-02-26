@@ -97,7 +97,7 @@ def get_answer_from_mistral(context, query):
     headers = {"Authorization": f"Bearer {HUGGINGFACE_API_KEY}"}
 
     prompt = f""" 
-    Generate the Answer of the question strictly based on the provided context. If question is not related to the context then return an empty response. 
+    Generate the Answer of the question strictly based on the provided context. 
     question: {query}
     context: {context}
     """
@@ -106,8 +106,8 @@ def get_answer_from_mistral(context, query):
         "inputs": prompt,
         "parameters": {
             "max_new_tokens": 500, 
-            "temperature": 0.01, # temperature is too low for generating deterministic answer
-            "top_p": 0.99      # Considering tokens from top wide probability range.
+            "temperature": 0.2, # temperature is too low for generating deterministic answer
+            "top_p": 0.9      # Considering tokens from top wide probability range.
             }
     }
 
